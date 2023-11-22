@@ -27,7 +27,14 @@ VALUES
     ('nome 3', 'yyy', 'n'),
     ('nome 4', 'ccc', 'n'),
     ('nome 5', 'ddd', 's'),
-    ('777', '777', 's')    
+    ('777', '777', 's')  
+
+--para efeito de teste
+    update bib.leitor set suspenso='n'
+    where nomeLeitor='777'
+    
+    update bib.leitor set suspenso='s'
+    where nomeLeitor='nome 5'  
 
 insert into bib.Emprestimo
     (idLivro, idLeitor, dataEmprestimo, dataDevolucaoPrevista, dataDevolucaoReal, multa)
@@ -47,6 +54,10 @@ VALUES
     set multa= NULL
     WHERE multa= 0.00
 
-select * from bib.Emprestimo
+select * from bib.Emprestimo where datadevolucaoReal is NULL
 select idLeitor, nomeLeitor, suspenso from bib.leitor
 select * from bib.livro order by codigoLivro
+
+
+
+
